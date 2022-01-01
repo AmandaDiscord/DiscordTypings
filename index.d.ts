@@ -1,6 +1,8 @@
 export type Snowflake = string;
 
-// https://discord.com/developers/docs/topics/gateway#message-delete
+/*
+ * https://discord.com/developers/docs/topics/gateway#message-delete
+ */
 
 export type MessageDeleteData = {
 	id: Snowflake;
@@ -8,7 +10,9 @@ export type MessageDeleteData = {
 	channel_id: Snowflake;
 }
 
-// https://discord.com/developers/docs/topics/gateway#message-reaction-add
+/*
+ * https://discord.com/developers/docs/topics/gateway#message-reaction-add
+ */
 
 export type MessageReactionAddData = {
 	user_id: Snowflake;
@@ -19,7 +23,9 @@ export type MessageReactionAddData = {
 	emoji: ReactionEmojiData;
 }
 
-// https://discord.com/developers/docs/topics/gateway#message-reaction-remove
+/*
+ * https://discord.com/developers/docs/topics/gateway#message-reaction-remove
+ */
 
 export type MessageReactionRemoveData = {
 	user_id: Snowflake;
@@ -29,7 +35,9 @@ export type MessageReactionRemoveData = {
 	emoji: ReactionEmojiData;
 }
 
-// https://discord.com/developers/docs/topics/gateway#message-reaction-remove-all
+/*
+ * https://discord.com/developers/docs/topics/gateway#message-reaction-remove-all
+ */
 
 export type MessageReactionRemoveAllData = {
 	channel_id: Snowflake;
@@ -37,14 +45,18 @@ export type MessageReactionRemoveAllData = {
 	guild_id?: Snowflake;
 }
 
-// https://discord.com/developers/docs/topics/gateway#guild-emojis-update
+/*
+ * https://discord.com/developers/docs/topics/gateway#guild-emojis-update
+ */
 
 export type GuildEmojisUpdateData = {
 	guild_id: Snowflake;
 	emojis: Array<EmojiData>;
 }
 
-// https://discord.com/developers/docs/resources/voice#voice-state-object
+/*
+ * https://discord.com/developers/docs/resources/voice#voice-state-object
+ */
 
 export type VoiceStateData = {
 	guild_id?: Snowflake;
@@ -62,7 +74,9 @@ export type VoiceStateData = {
 	request_to_speak_timestamp: string | null;
 }
 
-// https://discord.com/developers/docs/topics/gateway#channel-pins-update
+/*
+ * https://discord.com/developers/docs/topics/gateway#channel-pins-update
+ */
 
 export type ChannelPinData = {
 	guild_id?: Snowflake;
@@ -70,7 +84,9 @@ export type ChannelPinData = {
 	last_pin_timestamp: string | null;
 }
 
-// https://discord.com/developers/docs/topics/gateway#ready (?)
+/*
+ * https://discord.com/developers/docs/topics/gateway#ready
+ */
 
 export type ReadyData = {
 	user: UserData;
@@ -85,7 +101,9 @@ export type ReadyData = {
 	relationships: Array<any>;
 }
 
-// https://discord.com/developers/docs/topics/gateway#resume (?)
+/*
+ * https://discord.com/developers/docs/topics/gateway#resume
+ */
 
 export type ResumeData = {
 	token: string;
@@ -95,7 +113,9 @@ export type ResumeData = {
 	_trace: Array<string>;
 }
 
-// https://discord.com/developers/docs/topics/gateway#thread-list-sync
+/*
+ * https://discord.com/developers/docs/topics/gateway#thread-list-sync
+ */
 
 export type ThreadListSyncData = {
 	guild_id: Snowflake;
@@ -104,7 +124,9 @@ export type ThreadListSyncData = {
 	members: Array<ThreadMemberData>;
 }
 
-// https://discord.com/developers/docs/topics/gateway#thread-members-update
+/*
+ * https://discord.com/developers/docs/topics/gateway#thread-members-update
+ */
 
 export type ThreadMembersUpdateData = {
 	id: Snowflake;
@@ -114,7 +136,9 @@ export type ThreadMembersUpdateData = {
 	removed_member_ids?: Array<Snowflake>;
 }
 
-// https://discord.com/developers/docs/resources/channel#thread-member-object
+/*
+ * https://discord.com/developers/docs/resources/channel#thread-member-object
+ */
 
 export type ThreadMemberData = {
 	id?: Snowflake;
@@ -123,7 +147,9 @@ export type ThreadMemberData = {
 	flags: number;
 }
 
-// https://discord.com/developers/docs/resources/channel#message-object
+/*
+ * https://discord.com/developers/docs/resources/channel#message-object
+ */
 
 export type MessageData = {
 	id: Snowflake;
@@ -145,7 +171,9 @@ export type MessageData = {
 	nonce: number | string;
 	pinned: boolean;
 	webhook_id?: Snowflake;
-	// https://discord.com/developers/docs/resources/channel#message-object-message-types
+	/*
+ * https://discord.com/developers/docs/resources/channel#message-object-message-types
+ */
 	type: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 ;
 	activity?: MessageActivityData;
 	application?: ApplicationData;
@@ -160,7 +188,9 @@ export type MessageData = {
 	stickers?: Array<StickerData>;
 }
 
-// https://discord.com/developers/docs/interactions/receiving-and-responding#message-interaction-object-message-interaction-structure
+/*
+ * https://discord.com/developers/docs/interactions/receiving-and-responding#message-interaction-object-message-interaction-structure
+ */
 
 export type MessageInteractionData = {
 	id: Snowflake;
@@ -169,7 +199,9 @@ export type MessageInteractionData = {
 	user: UserData;
 }
 
-// https://discord.com/developers/docs/resources/guild#guild-member-object (?)
+/*
+ * https://discord.com/developers/docs/resources/guild#guild-member-object
+ */
 
 export type MemberData = {
 	user?: UserData;
@@ -187,7 +219,9 @@ export type MemberData = {
 	hoisted_role: Snowflake;
 }
 
-// https://discord.com/developers/docs/resources/user#user-object
+/*
+ * https://discord.com/developers/docs/resources/user#user-object
+ */
 
 export type UserData = {
 	id: Snowflake;
@@ -206,7 +240,9 @@ export type UserData = {
 	public_flags?: number;
 }
 
-// https://discord.com/developers/docs/resources/channel#embed-object
+/*
+ * https://discord.com/developers/docs/resources/channel#embed-object
+ */
 
 export type EmbedData = {
 	title?: string;
@@ -251,7 +287,9 @@ export type EmbedData = {
 	fields?: Array<{ name: string; value: string; inline?: boolean }>;
 }
 
-// https://discord.com/developers/docs/resources/channel#attachment-object
+/*
+ * https://discord.com/developers/docs/resources/channel#attachment-object
+ */
 
 export type AttachmentData = {
 	id: Snowflake;
@@ -266,7 +304,9 @@ export type AttachmentData = {
 	ephemeral?: boolean;
 }
 
-// https://discord.com/developers/docs/resources/guild#guild-object
+/*
+ * https://discord.com/developers/docs/resources/guild#guild-object
+ */
 
 export type GuildData = {
 	id: Snowflake;
@@ -323,7 +363,9 @@ export type GuildData = {
 	premium_progress_bar_enabled: boolean;
 }
 
-// https://discord.com/developers/docs/resources/stage-instance#stage-instance-object
+/*
+ * https://discord.com/developers/docs/resources/stage-instance#stage-instance-object
+ */
 
 export type StageInstanceData = {
 	id: Snowflake;
@@ -334,11 +376,15 @@ export type StageInstanceData = {
 	discoverable_disabled: boolean;
 }
 
-// https://discord.com/developers/docs/resources/guild#guild-object-guild-features
+/*
+ * https://discord.com/developers/docs/resources/guild#guild-object-guild-features
+ */
 
 export type GuildFeature = "ANIMATED_ICON" | "BANNER" | "COMMERCE" | "COMMUNITY" | "DISCOVERABLE" | "FEATURABLE" | "INVITE_SPLASH" | "MEMBER_VERIFICATION_GATE_ENABLED" | "MONETIZATION_ENABLED" | "MORE_STICKERS" | "NEWS" | "PARTNERED" | "PREVIEW_ENABLED" | "PRIVATE_THREADS" | "ROLE_ICONS" | "SEVEN_DAY_THREAD_ARCHIVE" | "THREE_DAY_THREAD_ARCHIVE" | "TICKETED_EVENTS_ENABLED" | "VANITY_URL" | "VERIFIED" | "VIP_REGIONS" | "WELCOME_SCREEN_ENABLED";
 
-// https://discord.com/developers/docs/resources/guild#welcome-screen-object
+/*
+ * https://discord.com/developers/docs/resources/guild#welcome-screen-object
+ */
 
 export type WelcomeScreenData = {
 	description: string | null;
@@ -352,7 +398,9 @@ export type WelcomeScreenChannelData = {
 	emoji_name: string | null;
 }
 
-// https://discord.com/developers/docs/topics/permissions#role-object
+/*
+ * https://discord.com/developers/docs/topics/permissions#role-object
+ */
 
 export type RoleData = {
 	id: Snowflake;
@@ -374,7 +422,9 @@ export type RoleTags = {
 	premium_subscriber?: null;
 }
 
-// https://discord.com/developers/docs/resources/emoji#emoji-object
+/*
+ * https://discord.com/developers/docs/resources/emoji#emoji-object
+ */
 
 export type EmojiData = {
 	id: Snowflake | null;
@@ -387,7 +437,9 @@ export type EmojiData = {
 	available?: boolean;
 }
 
-// https://discord.com/developers/docs/topics/gateway#presence-update-presence-update-event-fields (?)
+/*
+ * https://discord.com/developers/docs/topics/gateway#presence-update-presence-update-event-fields
+ */
 
 export type PresenceData = {
 	user: UserData & { id: Snowflake };
@@ -400,7 +452,9 @@ export type PresenceData = {
 	nick?: string;
 }
 
-// https://discord.com/developers/docs/topics/gateway#activity-object
+/*
+ * https://discord.com/developers/docs/topics/gateway#activity-object
+ */
 
 export type ActivityData = {
 	name: string;
@@ -435,7 +489,9 @@ export type ActivityData = {
 	buttons?: Array<{ label: string; url: string }>;
 }
 
-// https://discord.com/developers/docs/resources/channel#channel-object (?)
+/*
+ * https://discord.com/developers/docs/resources/channel#channel-object
+ */
 
 export interface ChannelData {
 	id: Snowflake;
@@ -469,7 +525,9 @@ export interface ThreadChannelData extends GuildChannelData, TextableChannelData
 	default_auto_archive_duration: number | null;
 }
 
-// https://discord.com/developers/docs/resources/channel#thread-metadata-object (?)
+/*
+ * https://discord.com/developers/docs/resources/channel#thread-metadata-object
+ */
 
 export interface ThreadMetaData {
 	archived: boolean;
@@ -522,7 +580,9 @@ export interface NewsChannelData extends GuildChannelData, TextableChannelData {
 	type: 5;
 }
 
-// https://discord.com/developers/docs/resources/channel#overwrite-object
+/*
+ * https://discord.com/developers/docs/resources/channel#overwrite-object
+ */
 
 export type PermissionOverwriteData = {
 	id: Snowflake;
@@ -531,7 +591,9 @@ export type PermissionOverwriteData = {
 	deny: string;
 }
 
-// https://discord.com/developers/docs/resources/application#application-resource
+/*
+ * https://discord.com/developers/docs/resources/application#application-resource
+ */
 
 export type ApplicationData = {
 	id: Snowflake;
@@ -554,7 +616,9 @@ export type ApplicationData = {
 	flags?: number;
 }
 
-// https://discord.com/developers/docs/topics/teams#data-models-team-object
+/*
+ * https://discord.com/developers/docs/topics/teams#data-models-team-object
+ */
 
 export type TeamData = {
 	icon: string | null;
@@ -571,7 +635,9 @@ export type TeamMemberData = {
 	user: UserData;
 }
 
-// https://discord.com/developers/docs/resources/sticker#sticker-item-object
+/*
+ * https://discord.com/developers/docs/resources/sticker#sticker-item-object
+ */
 
 export type StickerItemData = {
 	id: Snowflake;
@@ -579,7 +645,9 @@ export type StickerItemData = {
 	format_type: StickerFormatType;
 }
 
-// https://discord.com/developers/docs/resources/sticker#sticker-resource
+/*
+ * https://discord.com/developers/docs/resources/sticker#sticker-resource
+ */
 
 export type StickerData = {
 	id: Snowflake;
@@ -599,7 +667,9 @@ export type StickerType = 1 | 2;
 
 export type StickerFormatType = 1 | 2 | 3;
 
-// https://discord.com/developers/docs/resources/channel#message-reference-object
+/*
+ * https://discord.com/developers/docs/resources/channel#message-reference-object
+ */
 
 export type MessageReferenceData = {
 	message_id?: Snowflake;
@@ -608,14 +678,18 @@ export type MessageReferenceData = {
 	fail_if_not_exists?: boolean;
 }
 
-// https://discord.com/developers/docs/resources/channel#message-object-message-activity-structure
+/*
+ * https://discord.com/developers/docs/resources/channel#message-object-message-activity-structure
+ */
 
 export type MessageActivityData = {
 	type: 1 | 2 | 3 | 5;
 	party_id?: string;
 }
 
-// https://discord.com/developers/docs/resources/channel#channel-mention-object
+/*
+ * https://discord.com/developers/docs/resources/channel#channel-mention-object
+ */
 
 export type ChannelMentionData = {
 	id: Snowflake;
@@ -624,7 +698,9 @@ export type ChannelMentionData = {
 	name: string;
 }
 
-// https://discord.com/developers/docs/resources/channel#reaction-object
+/*
+ * https://discord.com/developers/docs/resources/channel#reaction-object
+ */
 
 export type ReactionData = {
 	count: number;
@@ -632,7 +708,9 @@ export type ReactionData = {
 	emoji: ReactionEmojiData;
 }
 
-// https://discord.com/developers/docs/resources/invite#invite-resource
+/*
+ * https://discord.com/developers/docs/resources/invite#invite-resource
+ */
 
 export type InviteData = {
 	code: string;
@@ -649,35 +727,45 @@ export type InviteData = {
 	guild_scheduled_event: GuildScheduleEventData;
 }
 
-// https://discord.com/developers/docs/topics/gateway#guild-delete
+/*
+ * https://discord.com/developers/docs/topics/gateway#guild-delete
+ */
 
 export type GuildDeleteData = {
 	id: Snowflake;
 	unavailable: boolean;
 }
 
-// https://discord.com/developers/docs/topics/gateway#guild-ban-add-guild-ban-add-event-fields
+/*
+ * https://discord.com/developers/docs/topics/gateway#guild-ban-add-guild-ban-add-event-fields
+ */
 
 export type GuildBanAddData = {
 	guild_id: Snowflake;
 	user: UserData;
 }
 
-// https://discord.com/developers/docs/topics/gateway#guild-ban-remove-guild-ban-remove-event-fields
+/*
+ * https://discord.com/developers/docs/topics/gateway#guild-ban-remove-guild-ban-remove-event-fields
+ */
 
 export type GuildBanRemoveData = {
 	guild_id: Snowflake;
 	user: UserData;
 }
 
-// https://discord.com/developers/docs/topics/gateway#guild-member-remove-guild-member-remove-event-fields
+/*
+ * https://discord.com/developers/docs/topics/gateway#guild-member-remove-guild-member-remove-event-fields
+ */
 
 export type GuildMemberRemoveData = {
 	guild_id: Snowflake;
 	user: UserData;
 }
 
-// https://discord.com/developers/docs/topics/gateway#guild-members-chunk-guild-members-chunk-event-fields
+/*
+ * https://discord.com/developers/docs/topics/gateway#guild-members-chunk-guild-members-chunk-event-fields
+ */
 
 export type GuildMembersChunkData = {
 	guild_id: Snowflake;
@@ -689,7 +777,9 @@ export type GuildMembersChunkData = {
 	nonce?: string;
 }
 
-// https://discord.com/developers/docs/topics/gateway#invite-create-invite-create-event-fields
+/*
+ * https://discord.com/developers/docs/topics/gateway#invite-create-invite-create-event-fields
+ */
 
 export type InviteCreateData = {
 	channel_id: Snowflake;
@@ -706,7 +796,9 @@ export type InviteCreateData = {
 	uses: number;
 }
 
-// https://discord.com/developers/docs/topics/gateway#invite-delete
+/*
+ * https://discord.com/developers/docs/topics/gateway#invite-delete
+ */
 
 export type InviteDeleteData = {
 	channel_id: Snowflake;
@@ -714,7 +806,9 @@ export type InviteDeleteData = {
 	code: string;
 }
 
-// https://discord.com/developers/docs/topics/gateway#message-delete-bulk
+/*
+ * https://discord.com/developers/docs/topics/gateway#message-delete-bulk
+ */
 
 export type MessageBulkDeleteData = {
 	ids: Array<Snowflake>;
@@ -722,7 +816,9 @@ export type MessageBulkDeleteData = {
 	guild_id?: Snowflake;
 }
 
-// https://discord.com/developers/docs/topics/gateway#message-reaction-remove-message-reaction-remove-event-fields
+/*
+ * https://discord.com/developers/docs/topics/gateway#message-reaction-remove-message-reaction-remove-event-fields
+ */
 
 export type MessageReactionRemoveEmojiData = {
 	user_id: Snowflake;
@@ -732,7 +828,9 @@ export type MessageReactionRemoveEmojiData = {
 	emoji: ReactionEmojiData;
 }
 
-// https://discord.com/developers/docs/resources/emoji#emoji-object
+/*
+ * https://discord.com/developers/docs/resources/emoji#emoji-object
+ */
 
 export type ReactionEmojiData = {
 	id: Snowflake | null;
@@ -740,7 +838,9 @@ export type ReactionEmojiData = {
 	animated?: boolean;
 }
 
-// https://discord.com/developers/docs/topics/gateway#presence-update
+/*
+ * https://discord.com/developers/docs/topics/gateway#presence-update
+ */
 
 export type PresenceUpdateData = {
 	user: UserData;
@@ -756,7 +856,9 @@ export type ClientStatusData = {
 	web?: string;
 }
 
-// https://discord.com/developers/docs/topics/gateway#typing-start
+/*
+ * https://discord.com/developers/docs/topics/gateway#typing-start
+ */
 
 export type TypingStartData = {
 	channel_id: Snowflake;
@@ -766,7 +868,9 @@ export type TypingStartData = {
 	member?: MemberData;
 }
 
-// https://discord.com/developers/docs/topics/gateway#voice-server-update
+/*
+ * https://discord.com/developers/docs/topics/gateway#voice-server-update
+ */
 
 export type VoiceServerUpdateData = {
 	token: string;
@@ -774,7 +878,9 @@ export type VoiceServerUpdateData = {
 	endpoint: string | null;
 }
 
-// https://discord.com/developers/docs/interactions/application-commands#application-command-object
+/*
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object
+ */
 
 export type ApplicationCommand = {
 	id: Snowflake;
@@ -805,7 +911,9 @@ export type ApplicationCommandOption = {
 
 export type ApplicationCommandOptionType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
-// https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-choice-structure (?)
+/*
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-choice-structure
+ */
 
 export type ApplicationCommandOptionChoice = {
 	name: string;
@@ -813,7 +921,9 @@ export type ApplicationCommandOptionChoice = {
 	value: string | number;
 }
 
-// https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object
+/*
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object
+ */
 
 export type GuildApplicationCommandPermissions = {
 	id: Snowflake;
@@ -844,7 +954,9 @@ export type InteractionData = {
 	message?: MessageData;
 }
 
-// https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-type
+/*
+ * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-type
+ */
 
 export type InteractionType = 1 | 2 | 3 | 4;
 
@@ -891,7 +1003,9 @@ export type InteractionApplicationCommandCallbackData = {
 	attachments: Array<AttachmentData>;
 }
 
-// https://discord.com/developers/docs/resources/channel#allowed-mentions-object
+/*
+ * https://discord.com/developers/docs/resources/channel#allowed-mentions-object
+ */
 
 export type AllowedMentionsData = {
 	parse: Array<"roles" | "users" | "everyone">;
@@ -907,7 +1021,9 @@ export type MessageInteraction = {
 	user: UserData;
 }
 
-// https://discord.com/developers/docs/resources/webhook#webhook-resource
+/*
+ * https://discord.com/developers/docs/resources/webhook#webhook-resource
+ */
 
 export type WebhookData = {
 	id: Snowflake;
@@ -926,7 +1042,9 @@ export type WebhookData = {
 
 export type WebhookType = 1 | 2 | 3
 
-// https://discord.com/developers/docs/resources/audit-log#audit-log-object
+/*
+ * https://discord.com/developers/docs/resources/audit-log#audit-log-object
+ */
 
 export type AuditLogObject = {
 	audit_log_entries: Array<AuditLogEntry>;
@@ -937,7 +1055,9 @@ export type AuditLogObject = {
 	webhooks: Array<any>;
 }
 
-// https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-optional-audit-entry-info (?)
+/*
+ * https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-optional-audit-entry-info
+ */
 
 export type AuditLogEntry = {
 	target_id: string | null;
@@ -958,7 +1078,9 @@ export type AuditLogEntry = {
 	reason?: string;
 }
 
-// https://discord.com/developers/docs/resources/audit-log#audit-log-change-object
+/*
+ * https://discord.com/developers/docs/resources/audit-log#audit-log-change-object
+ */
 
 export type AuditLogChange = {
 	new_value?: string | number | boolean | Array<RoleData> | Array<PermissionOverwriteData>;
@@ -970,7 +1092,9 @@ export type AuditLogEventType = 1 | 10 | 11 | 12 | 13 | 14 | 15 | 20 | 21 | 22 |
 
 export type GuildPreviewData = Pick<GuildData, "id" | "name" | "icon" | "splash" | "discovery_splash" | "emojis" | "features" | "approximate_member_count" | "approximate_presence_count" | "description">;
 
-// https://discord.com/developers/docs/resources/guild#get-guild-widget-example-get-guild-widget
+/*
+ * https://discord.com/developers/docs/resources/guild#get-guild-widget-example-get-guild-widget
+ */
 
 export type GuildWidgetData = {
 	id: Snowflake;
@@ -981,7 +1105,9 @@ export type GuildWidgetData = {
 	presence_count: number;
 }
 
-// https://discord.com/developers/docs/resources/voice#voice-region-object
+/*
+ * https://discord.com/developers/docs/resources/voice#voice-region-object
+ */
 
 export type VoiceRegionData = {
 	id: string;
@@ -992,7 +1118,9 @@ export type VoiceRegionData = {
 	custom: boolean;
 }
 
-// https://discord.com/developers/docs/interactions/message-components#component-object
+/*
+ * https://discord.com/developers/docs/interactions/message-components#component-object
+ */
 
 export type MessageComponentData = {
 	type: MessageComponentType;
@@ -1013,7 +1141,9 @@ export type MessageComponentData = {
 	components?: Array<ButtonData>;
 }
 
-// https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-option-structure
+/*
+ * https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-option-structure
+ */
 
 export type SelectOptionData = {
 	label: string;
@@ -1043,7 +1173,9 @@ export type ButtonData = {
 	disabled?: boolean;
 }
 
-// https://discord.com/developers/docs/resources/guild-template#guild-template-object
+/*
+ * https://discord.com/developers/docs/resources/guild-template#guild-template-object
+ */
 
 export type GuildTemplateData = {
 	code: string;
@@ -1059,7 +1191,9 @@ export type GuildTemplateData = {
 	is_dirty: boolean | null;
 }
 
-// https://discord.com/developers/docs/resources/guild#integration-object
+/*
+ * https://discord.com/developers/docs/resources/guild#integration-object
+ */
 
 export type IntegrationData = {
 	id: Snowflake;
@@ -1093,7 +1227,9 @@ export type IntegrationApplicationData = {
 	bot?: UserData;
 }
 
-// https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object
+/*
+ * https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object
+ */
 
 export type GuildScheduleEventData = {
 	id: Snowflake;
