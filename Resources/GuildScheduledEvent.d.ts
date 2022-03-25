@@ -9,7 +9,7 @@ export type GuildScheduledEvent = {
 	channel_id: Snowflake | null;
 	creator_id?: Snowflake | null;
 	name: string;
-	description?: string;
+	description?: string | null;
 	scheduled_start_time: string;
 	scheduled_end_time: string | null;
 	privacy_level: GuildScheduledEventPrivacyLevel;
@@ -19,7 +19,7 @@ export type GuildScheduledEvent = {
 	entity_metadata?: GuildScheduledEventEntityMetadata;
 	creator?: import("./User").User;
 	user_count?: number;
-	image: string | null;
+	image?: string | null;
 }
 
 /**

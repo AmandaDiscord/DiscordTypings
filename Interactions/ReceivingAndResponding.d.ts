@@ -102,6 +102,7 @@ export type AutocompleteInteractionCallbackData = {
  */
 export type ModalInteractionCallbackData = {
 	custom_id: string;
+	/** 1-45 characters */
 	title: string;
 	components: Array<import("./MessageComponents").ActionRow>;
 }

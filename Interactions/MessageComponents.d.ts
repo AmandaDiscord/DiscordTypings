@@ -54,7 +54,7 @@ export type SelectMenu = {
 	custom_id: string;
 	/** length of 25 max */
 	options?: Array<SelectOption>;
-	/** 1-100 chars */
+	/** 1-150 chars */
 	placeholder?: string;
 	/** 0-25 */
 	min_values?: number;
@@ -85,6 +85,7 @@ export type TextInput = {
 	/** 1-100 chars */
 	custom_id: string;
 	style: TextInputStyle;
+	/** 1-45 chars */
 	label: string;
 	/** 0-4000 */
 	min_length?: number;

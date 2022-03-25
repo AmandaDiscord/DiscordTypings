@@ -10,6 +10,7 @@ export type StageInstance = {
 	topic: string;
 	privacy_level: PrivacyLevel;
 	discoverable_disabled: boolean;
+	guild_scheduled_event_id: Snowflake | null;
 }
 
 /**

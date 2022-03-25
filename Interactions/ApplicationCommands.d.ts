@@ -1,35 +1,99 @@
-import { Snowflake } from "../Reference";
+import { Snowflake, Locale } from "../Reference";
 
 /*
  * https://discord.com/developers/docs/interactions/application-commands#application-command-object
  */
-export type ApplicationCommand = {
-	id: Snowflake;
+export type ApplicationCommandBase = {
 	type?: ApplicationCommandType;
-	application_id: Snowflake;
-	guild_id?: Snowflake;
 	/** 1-32 chars */
 	name: string;
 	/** 1-100 chars */
 	description: string;
+	name_localizations?: { [locale in Locale]?: string; };
+	description_localizations?: { [locale in Locale]?: string; };
 	/** length of 25 max */
 	options?: Array<ApplicationCommandOption>;
 	default_permission?: boolean;
-	version: Snowflake;
 }
+
+/*
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object
+ */
+export interface FetchedApplicationCommand extends ApplicationCommandBase {
+	id: Snowflake;
+	version: Snowflake;
+	/** Not to be PUT. Only sometimes seen on GET requests */
+	name_localized?: string;
+	/** Not to be PUT. Only sometimes seen on GET requests */
+	description_localized?: string;
+	guild_id?: Snowflake;
+	application_id: Snowflake;
+	/** length of 25 max */
+	options?: Array<FetchedApplicationCommandOption>;
+}
+
+/*
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object
+ */
+export type ApplicationCommand = ApplicationCommandBase | FetchedApplicationCommand;
 
 /**
  * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-types
  */
 export type ApplicationCommandType = 1 | 2 | 3;
 
+/**
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
+ */
 type ApplicationCommandOptionBase = {
 	/** 1-32 chars */
 	name: string;
+	name_localizations?: { [locale in Locale]?: string; };
+	description_localizations?: { [locale in Locale]?: string; };
 	/** 1-100 chars */
 	description: string;
 	required?: boolean;
 }
+
+/**
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
+ */
+export type FetchedApplicationCommandOptionBase = {
+	/** Not to be PUT. Only sometimes seen on GET requests */
+	name_localized?: string;
+	/** Not to be PUT. Only sometimes seen on GET requests */
+	description_localized?: string;
+}
+
+/**
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
+ */
+export type FetchedApplicationCommandOptionAsTypeString = FetchedApplicationCommandOptionBase & ApplicationCommandOptionAsTypeString;
+
+/**
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
+ */
+export type FetchedApplicationCommandOptionAsTypeNumber = FetchedApplicationCommandOptionBase & ApplicationCommandOptionAsTypeNumber;
+
+/**
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
+ */
+export type FetchedApplicationCommandOptionAsTypeChannel = FetchedApplicationCommandOptionBase & ApplicationCommandOptionAsTypeChannel;
+
+/**
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
+ */
+export type FetchedApplicationCommandOptionAsTypeSub = FetchedApplicationCommandOptionBase & ApplicationCommandOptionAsTypeSub;
+
+/**
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
+ */
+export type FetchedApplicationCommandOptionNotTypeNarrowed = FetchedApplicationCommandOptionBase & ApplicationCommandOptionNotTypeNarrowed;
+
+/**
+ * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
+ */
+export type FetchedApplicationCommandOption = FetchedApplicationCommandOptionAsTypeString | FetchedApplicationCommandOptionAsTypeNumber | FetchedApplicationCommandOptionAsTypeChannel | FetchedApplicationCommandOptionAsTypeSub | FetchedApplicationCommandOptionNotTypeNarrowed;
 
 /**
  * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
