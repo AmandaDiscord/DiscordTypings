@@ -79,13 +79,6 @@ export interface NewsChannel extends TextBasedChannel, GuildChannel {
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export interface StoreChannel extends GuildChannel {
-	type: 6;
-}
-
-/**
- * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
- */
 export interface ThreadBasedChannel extends TextBasedChannel, GuildChannel {
 	message_count: number;
 	member_count: number;
@@ -127,6 +120,13 @@ export interface StageChannel extends GuildVoiceBasedChannel {
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
+export interface DirectoryChannel extends GuildChannel {
+	type: 14;
+}
+
+/**
+ * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
+ */
 export interface UnknownChannel extends ChannelBase {
 	type: ChannelType;
 }
@@ -134,12 +134,12 @@ export interface UnknownChannel extends ChannelBase {
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export type Channel = TextChannel | DMChannel | VoiceChannel | CategoryChannel | NewsChannel | StoreChannel | NewsThread | PublicThread | PrivateThread | StageChannel | UnknownChannel;
+export type Channel = TextChannel | DMChannel | VoiceChannel | CategoryChannel | NewsChannel | NewsThread | PublicThread | PrivateThread | StageChannel | DirectoryChannel | UnknownChannel;
 
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-types
  */
-export type ChannelType = 0 | 1 | 2 | 4 | 5 | 6 | 10 | 11 | 12 | 13;
+export type ChannelType = 0 | 1 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14;
 
 /**
  * https://discord.com/developers/docs/resources/channel#overwrite-object

@@ -21,4 +21,15 @@ export type Application = {
 	slug?: string;
 	cover_image?: string;
 	flags?: number;
+	tags?: Array<string>;
+	install_params?: InstallParams;
+	custom_install_url?: string;
+}
+
+/**
+ * https://discord.com/developers/docs/resources/application#install-params-object
+ */
+export type InstallParams = {
+	scopes?: Array<string>;
+	permissions?: string;
 }

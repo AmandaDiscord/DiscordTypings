@@ -2,6 +2,7 @@ import { Snowflake } from "../Reference";
 
 export type Role = {
 	id: Snowflake;
+	/** 1-100 chars */
 	name: string;
 	color: number;
 	hoist: boolean;

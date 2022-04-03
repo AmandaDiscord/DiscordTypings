@@ -33,7 +33,7 @@ export type Guild = {
 	member_count?: number;
 	voice_states?: Array<import("./Voice").VoiceState>;
 	members?: Array<Member>;
-	channels?: Array<import("./Channel").TextChannel | import("./Channel").VoiceChannel | import("./Channel").CategoryChannel | import("./Channel").NewsChannel | import("./Channel").StoreChannel | import("./Channel").StageChannel>;
+	channels?: Array<import("./Channel").TextChannel | import("./Channel").VoiceChannel | import("./Channel").CategoryChannel | import("./Channel").NewsChannel | import("./Channel").StageChannel | import("./Channel").DirectoryChannel>;
 	threads?: Array<import("./Channel").NewsThread | import("./Channel").PublicThread | import("./Channel").PrivateThread>;
 	presences?: Array<import("../Topics/Gateway").PresenceUpdate>;
 	max_presences?: number | null;

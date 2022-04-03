@@ -9,8 +9,8 @@ export type ApplicationCommandBase = {
 	name: string;
 	/** 1-100 chars */
 	description: string;
-	name_localizations?: { [locale in Locale]?: string; };
-	description_localizations?: { [locale in Locale]?: string; };
+	name_localizations?: { [locale in Locale]?: string; } | null;
+	description_localizations?: { [locale in Locale]?: string; } | null;
 	/** length of 25 max */
 	options?: Array<ApplicationCommandOption>;
 	default_permission?: boolean;
@@ -48,8 +48,8 @@ export type ApplicationCommandType = 1 | 2 | 3;
 type ApplicationCommandOptionBase = {
 	/** 1-32 chars */
 	name: string;
-	name_localizations?: { [locale in Locale]?: string; };
-	description_localizations?: { [locale in Locale]?: string; };
+	name_localizations?: { [locale in Locale]?: string; } | null;
+	description_localizations?: { [locale in Locale]?: string; } | null;
 	/** 1-100 chars */
 	description: string;
 	required?: boolean;
