@@ -15,7 +15,7 @@ export interface TextBasedChannel extends ChannelBase {
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export interface GuildChannel extends ChannelBase {
+export interface GuildBasedChannel extends ChannelBase {
 	guild_id: Snowflake;
 	position: number;
 	permission_overwrites: Array<Overwrite>;
@@ -29,7 +29,7 @@ export interface GuildChannel extends ChannelBase {
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export interface TextChannel extends TextBasedChannel, GuildChannel {
+export interface TextChannel extends TextBasedChannel, GuildBasedChannel {
 	type: 0;
 	topic: string | null;
 	rate_limit_per_user: number;
@@ -47,7 +47,7 @@ export interface DMChannel extends TextBasedChannel {
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export interface GuildVoiceBasedChannel extends GuildChannel {
+export interface GuildVoiceBasedChannel extends GuildBasedChannel {
 	bitrate: number;
 	user_limit: number;
 	rtc_region: string | null;
@@ -64,14 +64,14 @@ export interface VoiceChannel extends GuildVoiceBasedChannel {
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export interface CategoryChannel extends GuildChannel {
+export interface CategoryChannel extends GuildBasedChannel {
 	type: 4;
 }
 
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export interface NewsChannel extends TextBasedChannel, GuildChannel {
+export interface NewsChannel extends TextBasedChannel, GuildBasedChannel {
 	type: 5;
 	topic: string | null;
 }
@@ -79,12 +79,13 @@ export interface NewsChannel extends TextBasedChannel, GuildChannel {
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export interface ThreadBasedChannel extends TextBasedChannel, GuildChannel {
+export interface ThreadBasedChannel extends TextBasedChannel, GuildBasedChannel {
 	message_count: number;
 	member_count: number;
 	thread_metadata: ThreadMetadata;
 	member?: ThreadMember;
 	default_auto_archive_duration: number;
+	flags?: number;
 }
 
 /**
@@ -120,26 +121,30 @@ export interface StageChannel extends GuildVoiceBasedChannel {
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export interface DirectoryChannel extends GuildChannel {
+export interface DirectoryChannel extends GuildBasedChannel {
 	type: 14;
 }
 
-/**
- * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
- */
-export interface UnknownChannel extends ChannelBase {
-	type: ChannelType;
+export interface ForumChannel extends GuildBasedChannel {
+	type: 15;
 }
 
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export type Channel = TextChannel | DMChannel | VoiceChannel | CategoryChannel | NewsChannel | NewsThread | PublicThread | PrivateThread | StageChannel | DirectoryChannel | UnknownChannel;
+export type Channel = TextChannel | DMChannel | VoiceChannel | CategoryChannel | NewsChannel | NewsThread | PublicThread | PrivateThread | StageChannel | DirectoryChannel | ForumChannel;
+
+/**
+ * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
+ */
+export type GuildChannel = Exclude<Channel, DMChannel | NewsThread | PublicThread | PrivateThread>;
+
+export type ThreadChannel = NewsThread | PublicThread | PrivateThread;
 
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-types
  */
-export type ChannelType = 0 | 1 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14;
+export type ChannelType = 0 | 1 | 2 | 4 | 5 | 10 | 11 | 12 | 13 | 14 | 15;
 
 /**
  * https://discord.com/developers/docs/resources/channel#overwrite-object

@@ -26,6 +26,7 @@ export type Guild = {
 	mfa_level: MFALevel;
 	application_id: Snowflake | null;
 	system_channel_id: Snowflake | null;
+	system_channel_flags: number;
 	rules_channel_id: Snowflake | null;
 	joined_at?: string;
 	large?: boolean;
@@ -33,8 +34,8 @@ export type Guild = {
 	member_count?: number;
 	voice_states?: Array<import("./Voice").VoiceState>;
 	members?: Array<Member>;
-	channels?: Array<import("./Channel").TextChannel | import("./Channel").VoiceChannel | import("./Channel").CategoryChannel | import("./Channel").NewsChannel | import("./Channel").StageChannel | import("./Channel").DirectoryChannel>;
-	threads?: Array<import("./Channel").NewsThread | import("./Channel").PublicThread | import("./Channel").PrivateThread>;
+	channels?: Array<import("./Channel").GuildChannel>;
+	threads?: Array<import("./Channel").ThreadChannel>;
 	presences?: Array<import("../Topics/Gateway").PresenceUpdate>;
 	max_presences?: number | null;
 	max_members?: number;

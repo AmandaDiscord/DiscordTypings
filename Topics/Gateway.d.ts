@@ -161,7 +161,7 @@ export type ReadyPayload = {
 export type ThreadListSyncPayload = {
 	guild_id: Snowflake;
 	channel_ids?: Array<Snowflake>;
-	threads: Array<import("../Resources/Channel").NewsThread | import("../Resources/Channel").PublicThread | import("../Resources/Channel").PrivateThread>;
+	threads: Array<import("../Resources/Channel").ThreadChannel>;
 	members: Array<import("../Resources/Channel").ThreadMember>;
 }
 

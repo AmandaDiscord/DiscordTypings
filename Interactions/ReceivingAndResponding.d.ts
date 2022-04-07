@@ -33,6 +33,7 @@ export type InteractionData = {
 	type: import("./ApplicationCommands").ApplicationCommandType;
 	resolved?: ResolvedData;
 	options?: Array<import("./ApplicationCommands").ApplicationCommandInteractionDataOption>;
+	guild_id?: Snowflake;
 	custom_id?: string;
 	component_type?: import("./MessageComponents").ComponentType;
 	values?: Array<import("./MessageComponents").SelectOption>;

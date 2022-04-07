@@ -7,7 +7,7 @@ export type AuditLog = {
 	audit_log_entries: Array<AuditLogEntry>;
 	guild_scheduled_event: Array<import("./GuildScheduledEvent").GuildScheduledEvent>;
 	integrations: Array<import("./Guild").Integration>;
-	threads: Array<import("./Channel").NewsThread | import("./Channel").PublicThread | import("./Channel").PrivateThread>;
+	threads: Array<import("./Channel").ThreadChannel>;
 	users: Array<import("./User").User>;
 	webhooks: Array<import("./Webhook").Webhook>;
 }

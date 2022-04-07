@@ -4,7 +4,7 @@
 export type Invite = {
 	code: string;
 	guild?: import("./Guild").Guild;
-	channel: import("./Channel").TextChannel | import("./Channel").VoiceChannel | import("./Channel").CategoryChannel | import("./Channel").NewsChannel | import("./Channel").StageChannel | import("./Channel").DirectoryChannel;
+	channel: import("./Channel").GuildChannel;
 	inviter?: import("./User").User;
 	target_type?: InviteTarget;
 	target_user?: import("./User").User;
