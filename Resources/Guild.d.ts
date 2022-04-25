@@ -159,7 +159,7 @@ export type Integration = {
 	id: Snowflake;
 	name: string;
 	type: "twitch" | "youtube" | "discord";
-	enabled: boolean;
+	enabled?: boolean;
 	syncing?: boolean;
 	role_id?: Snowflake;
 	enable_emoticons?: boolean;

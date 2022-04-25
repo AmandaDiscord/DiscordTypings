@@ -212,10 +212,15 @@ export interface ApplicationCommandInteractionDataOptionAsTypeSub extends Applic
 	options: Array<ApplicationCommandInteractionDataOptionSub>;
 }
 
-export interface ApplicationCommandInteractionDataOptionNotTypeNarrowed extends ApplicationCommandInteractionDataOptionBase {
-	type: Exclude<ApplicationCommandOptionType, 1 | 2 | 3 | 4 | 10>;
+export interface ApplicationCommandInteractionDataOptionAsTypeBoolean extends ApplicationCommandInteractionDataOptionBase {
+	type: 5;
+	value: boolean;
 }
 
-export type ApplicationCommandInteractionDataOptionSub = ApplicationCommandInteractionDataOptionAsTypeString | ApplicationCommandInteractionDataOptionAsTypeNumber | ApplicationCommandInteractionDataOptionNotTypeNarrowed;
+export interface ApplicationCommandInteractionDataOptionNotTypeNarrowed extends ApplicationCommandInteractionDataOptionBase {
+	type: Exclude<ApplicationCommandOptionType, 1 | 2 | 3 | 4 | 5 | 10>;
+}
 
-export type ApplicationCommandInteractionDataOption = ApplicationCommandInteractionDataOptionAsTypeString | ApplicationCommandInteractionDataOptionAsTypeNumber | ApplicationCommandInteractionDataOptionAsTypeSub | ApplicationCommandInteractionDataOptionNotTypeNarrowed;
+export type ApplicationCommandInteractionDataOptionSub = ApplicationCommandInteractionDataOptionAsTypeString | ApplicationCommandInteractionDataOptionAsTypeNumber | ApplicationCommandInteractionDataOptionAsTypeBoolean | ApplicationCommandInteractionDataOptionNotTypeNarrowed;
+
+export type ApplicationCommandInteractionDataOption = ApplicationCommandInteractionDataOptionAsTypeString | ApplicationCommandInteractionDataOptionAsTypeNumber | ApplicationCommandInteractionDataOptionAsTypeBoolean | ApplicationCommandInteractionDataOptionAsTypeSub | ApplicationCommandInteractionDataOptionNotTypeNarrowed;
