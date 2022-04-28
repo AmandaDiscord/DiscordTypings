@@ -15,6 +15,7 @@ export type GatewayPayload = {
  */
 export type GatewayEvent = "READY"
 	| "RESUMED"
+	| "APPLICATION_COMMAND_PERMISSIONS_UPDATE"
 	| "CHANNEL_CREATE"
 	| "CHANNEL_UPDATE"
 	| "CHANNEL_DELETE"

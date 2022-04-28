@@ -13,7 +13,8 @@ export type ApplicationCommandBase = {
 	description_localizations?: { [locale in Locale]?: string; } | null;
 	/** length of 25 max */
 	options?: Array<ApplicationCommandOption>;
-	default_permission?: boolean;
+	default_member_permissions?: string | null;
+	dm_permission?: boolean | null;
 }
 
 /*
