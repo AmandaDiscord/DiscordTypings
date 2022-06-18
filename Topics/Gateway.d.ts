@@ -86,9 +86,9 @@ export type IdentifyPayload = {
  * https://discord.com/developers/docs/topics/gateway#identify-identify-connection-properties
  */
 export type IdentifyConnectionProperties = {
-	$os: string;
-	$browser: string;
-	$device: string;
+	os: string;
+	browser: string;
+	device: string;
 }
 
 /**
