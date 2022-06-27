@@ -4,6 +4,7 @@ export * from "./Interactions/ReceivingAndResponding";
 
 export * from "./Resources/Application";
 export * from "./Resources/AuditLog";
+export * from "./Resources/AutoModeration";
 export * from "./Resources/Channel";
 export * from "./Resources/Emoji";
 export * from "./Resources/Guild";
