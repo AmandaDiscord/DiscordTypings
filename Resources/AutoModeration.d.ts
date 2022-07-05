@@ -31,7 +31,7 @@ export type AutoModerationRule = {
 	event_type: AutoModerationEventType;
 	trigger_type: AutoModerationTriggerType;
 	trigger_metadata: AutoModerationTriggerMetadata;
-	actions: Array<Action>;
+	actions: Array<AutoModerationAction>;
 	enabled: boolean;
 	exempt_roles: Array<Snowflake>;
 	exempt_channels: Array<Snowflake>;

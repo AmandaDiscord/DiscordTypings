@@ -14,6 +14,7 @@ export type Interaction = {
 	user?: import("../Resources/User").User;
 	token: string;
 	version: number;
+	app_permisions?: string;
 	message?: import("../Resources/Channel").Message;
 	locale?: import("../Reference").Locale;
 	guild_locale?: import("../Reference").Locale;

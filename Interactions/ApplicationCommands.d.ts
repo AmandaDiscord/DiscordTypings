@@ -13,8 +13,8 @@ export type ApplicationCommandBase = {
 	description_localizations?: { [locale in Locale]?: string; } | null;
 	/** length of 25 max */
 	options?: Array<ApplicationCommandOption>;
-	default_member_permissions?: string | null;
-	dm_permission?: boolean | null;
+	default_member_permissions: string | null;
+	dm_permission?: boolean;
 }
 
 /*
@@ -115,6 +115,8 @@ export interface ApplicationCommandOptionAsTypeNumber extends ApplicationCommand
 	choices?: Array<ApplicationCommandOptionChoice>;
 	min_value?: number;
 	max_value?: number;
+	min_length?: number;
+	max_length?: number;
 	autocomplete?: boolean;
 }
 
