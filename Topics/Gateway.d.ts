@@ -158,6 +158,7 @@ export type ReadyPayload = {
 	session_id: string;
 	shard?: [number, number];
 	application: import("../Resources/Application").Application;
+	resume_gateway_url: string;
 }
 
 /**

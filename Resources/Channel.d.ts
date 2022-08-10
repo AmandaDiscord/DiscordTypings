@@ -86,6 +86,7 @@ export interface ThreadBasedChannel extends TextBasedChannel, GuildBasedChannel 
 	member?: ThreadMember;
 	default_auto_archive_duration: number;
 	flags?: number;
+	total_message_sent?: number;
 }
 
 /**
@@ -218,6 +219,7 @@ export type Message = {
 	components?: Array<import("../Interactions/MessageComponents").ActionRow>;
 	sticker_items?: Array<import("./Sticker").StickerItem>;
 	stickers?: Array<import("./Sticker").Sticker>;
+	position?: number;
 }
 
 /**

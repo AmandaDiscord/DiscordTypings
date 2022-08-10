@@ -32,7 +32,7 @@ export type PremiumType = 0 | 1 | 2;
 export type Connection = {
 	id: string;
 	name: string;
-	type: string;
+	type: ConnectionService;
 	revoked?: boolean;
 	integrations?: Array<import("./Guild").Integration>;
 	verified: boolean;
@@ -40,6 +40,25 @@ export type Connection = {
 	show_activity: boolean;
 	visibility: Visibility;
 }
+
+/**
+ * https://discord.com/developers/docs/resources/user#connection-object-services
+ */
+export type ConnectionService = "battlenet"
+	| "epicgames"
+	| "facebook"
+	| "github"
+	| "leagueoflegends"
+	| "playstation"
+	| "reddit"
+	| "samsunggalaxy"
+	| "spotify"
+	| "skype"
+	| "steam"
+	| "twitch"
+	| "twitter"
+	| "xbox"
+	| "youtube"
 
 /**
  * https://discord.com/developers/docs/resources/user#connection-object-visibility-types

@@ -3,7 +3,7 @@ import { Snowflake } from "../Reference";
 /**
  * https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-types
  */
-export type AutoModerationTriggerType = 1 | 2 | 3 | 4;
+export type AutoModerationTriggerType = 1 | 2 | 3 | 4 | 5;
 
 /**
  * https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-event-types
@@ -44,6 +44,7 @@ export type AutoModerationTriggerMetadata = {
 	presets?: Array<AutoModerationKeywordPresetType>;
 	allow_list?: Array<string>;
 	keyword_filter?: Array<string>;
+	mention_total_limit?: number;
 }
 
 /**
