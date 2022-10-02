@@ -33,6 +33,7 @@ export interface TextChannel extends TextBasedChannel, GuildBasedChannel {
 	type: 0;
 	topic: string | null;
 	rate_limit_per_user: number;
+	default_thread_rate_limit_per_user?: number;
 }
 
 /**
@@ -71,9 +72,10 @@ export interface CategoryChannel extends GuildBasedChannel {
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export interface NewsChannel extends TextBasedChannel, GuildBasedChannel {
+export interface AnnouncementChannel extends TextBasedChannel, GuildBasedChannel {
 	type: 5;
 	topic: string | null;
+	default_thread_rate_limit_per_user?: number;
 }
 
 /**
@@ -92,7 +94,7 @@ export interface ThreadBasedChannel extends TextBasedChannel, GuildBasedChannel 
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export interface NewsThread extends ThreadBasedChannel {
+export interface AnnouncementThread extends ThreadBasedChannel {
 	type: 10;
 }
 
@@ -128,19 +130,24 @@ export interface DirectoryChannel extends GuildBasedChannel {
 
 export interface ForumChannel extends GuildBasedChannel {
 	type: 15;
+	available_tags?: Array<ForumTag>;
+	applied_tags?: Array<Snowflake>;
+	default_reaction_emoji?: DefaultReaction | null;
+	default_thread_rate_limit_per_user?: number;
+	default_sort_order?: ThreadSortOrder | null;
 }
 
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export type Channel = TextChannel | DMChannel | VoiceChannel | CategoryChannel | NewsChannel | NewsThread | PublicThread | PrivateThread | StageChannel | DirectoryChannel | ForumChannel;
+export type Channel = TextChannel | DMChannel | VoiceChannel | CategoryChannel | AnnouncementChannel | AnnouncementThread | PublicThread | PrivateThread | StageChannel | DirectoryChannel | ForumChannel;
 
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-structure
  */
-export type GuildChannel = Exclude<Channel, DMChannel | NewsThread | PublicThread | PrivateThread>;
+export type GuildChannel = Exclude<Channel, DMChannel | AnnouncementThread | PublicThread | PrivateThread>;
 
-export type ThreadChannel = NewsThread | PublicThread | PrivateThread;
+export type ThreadChannel = AnnouncementThread | PublicThread | PrivateThread;
 
 /**
  * https://discord.com/developers/docs/resources/channel#channel-object-channel-types
@@ -215,7 +222,7 @@ export type Message = {
 	flags?: number;
 	referenced_message?: Message | null;
 	interaction?: import("../Interactions/ReceivingAndResponding").MessageInteraction;
-	thread?: NewsThread | PublicThread | PrivateThread;
+	thread?: AnnouncementThread | PublicThread | PrivateThread;
 	components?: Array<import("../Interactions/MessageComponents").ActionRow>;
 	sticker_items?: Array<import("./Sticker").StickerItem>;
 	stickers?: Array<import("./Sticker").Sticker>;
@@ -386,3 +393,27 @@ export type AllowedMentions = {
 	users?: Array<Snowflake>;
 	replied_user?: boolean;
 }
+
+/**
+ * https://discord.com/developers/docs/resources/channel#default-reaction-object
+ */
+export type DefaultReaction = {
+	emoji_id: Snowflake | null;
+	emoji_name: string | null;
+}
+
+/**
+ * https://discord.com/developers/docs/resources/channel#forum-tag-object
+ */
+export type ForumTag = {
+	id: Snowflake;
+	name: string;
+	moderated: boolean;
+	emoji_id: Snowflake;
+	emoji_name: string | null;
+}
+
+/**
+ * https://discord.com/developers/docs/resources/channel#channel-object-sort-order-types
+ */
+export type ThreadSortOrder = 0 | 1;

@@ -33,7 +33,7 @@ export type InteractionData = {
 	name: string;
 	type: import("./ApplicationCommands").ApplicationCommandType;
 	resolved?: ResolvedData;
-	options?: Array<import("./ApplicationCommands").ApplicationCommandInteractionDataOption>;
+	options?: Array<ApplicationCommandInteractionDataOption>;
 	guild_id?: Snowflake;
 	custom_id?: string;
 	component_type?: import("./MessageComponents").ComponentType;
@@ -113,3 +113,36 @@ export type ModalInteractionCallbackData = {
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-response-object-interaction-callback-data-structure
  */
 export type InteractionCallbackData = MessageInteractionCallbackData | AutocompleteInteractionCallbackData | ModalInteractionCallbackData;
+
+type ApplicationCommandInteractionDataOptionBase = {
+	name: string;
+	focused?: boolean;
+}
+
+export interface ApplicationCommandInteractionDataOptionAsTypeString extends ApplicationCommandInteractionDataOptionBase {
+	type: 3;
+	value: string;
+}
+
+export interface ApplicationCommandInteractionDataOptionAsTypeNumber extends ApplicationCommandInteractionDataOptionBase {
+	type: 4 | 10;
+	value: number;
+}
+
+export interface ApplicationCommandInteractionDataOptionAsTypeSub extends ApplicationCommandInteractionDataOptionBase {
+	type: 1 | 2;
+	options: Array<ApplicationCommandInteractionDataOptionSub>;
+}
+
+export interface ApplicationCommandInteractionDataOptionAsTypeBoolean extends ApplicationCommandInteractionDataOptionBase {
+	type: 5;
+	value: boolean;
+}
+
+export interface ApplicationCommandInteractionDataOptionNotTypeNarrowed extends ApplicationCommandInteractionDataOptionBase {
+	type: Exclude<import("./ApplicationCommands").ApplicationCommandOptionType, 1 | 2 | 3 | 4 | 5 | 10>;
+}
+
+export type ApplicationCommandInteractionDataOptionSub = ApplicationCommandInteractionDataOptionAsTypeString | ApplicationCommandInteractionDataOptionAsTypeNumber | ApplicationCommandInteractionDataOptionAsTypeBoolean | ApplicationCommandInteractionDataOptionNotTypeNarrowed;
+
+export type ApplicationCommandInteractionDataOption = ApplicationCommandInteractionDataOptionAsTypeString | ApplicationCommandInteractionDataOptionAsTypeNumber | ApplicationCommandInteractionDataOptionAsTypeBoolean | ApplicationCommandInteractionDataOptionAsTypeSub | ApplicationCommandInteractionDataOptionNotTypeNarrowed;

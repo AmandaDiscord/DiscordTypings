@@ -194,36 +194,3 @@ export type ApplicationCommandPermission = {
  * https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-application-command-permission-type
  */
 export type ApplicationCommandPermissionType = 1 | 2;
-
-type ApplicationCommandInteractionDataOptionBase = {
-	name: string;
-	focused?: boolean;
-}
-
-export interface ApplicationCommandInteractionDataOptionAsTypeString extends ApplicationCommandInteractionDataOptionBase {
-	type: 3;
-	value: string;
-}
-
-export interface ApplicationCommandInteractionDataOptionAsTypeNumber extends ApplicationCommandInteractionDataOptionBase {
-	type: 4 | 10;
-	value: number;
-}
-
-export interface ApplicationCommandInteractionDataOptionAsTypeSub extends ApplicationCommandInteractionDataOptionBase {
-	type: 1 | 2;
-	options: Array<ApplicationCommandInteractionDataOptionSub>;
-}
-
-export interface ApplicationCommandInteractionDataOptionAsTypeBoolean extends ApplicationCommandInteractionDataOptionBase {
-	type: 5;
-	value: boolean;
-}
-
-export interface ApplicationCommandInteractionDataOptionNotTypeNarrowed extends ApplicationCommandInteractionDataOptionBase {
-	type: Exclude<ApplicationCommandOptionType, 1 | 2 | 3 | 4 | 5 | 10>;
-}
-
-export type ApplicationCommandInteractionDataOptionSub = ApplicationCommandInteractionDataOptionAsTypeString | ApplicationCommandInteractionDataOptionAsTypeNumber | ApplicationCommandInteractionDataOptionAsTypeBoolean | ApplicationCommandInteractionDataOptionNotTypeNarrowed;
-
-export type ApplicationCommandInteractionDataOption = ApplicationCommandInteractionDataOptionAsTypeString | ApplicationCommandInteractionDataOptionAsTypeNumber | ApplicationCommandInteractionDataOptionAsTypeBoolean | ApplicationCommandInteractionDataOptionAsTypeSub | ApplicationCommandInteractionDataOptionNotTypeNarrowed;

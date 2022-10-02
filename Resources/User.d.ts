@@ -38,6 +38,7 @@ export type Connection = {
 	verified: boolean;
 	friend_sync: boolean;
 	show_activity: boolean;
+	two_way_link: boolean;
 	visibility: Visibility;
 }
 
@@ -45,13 +46,15 @@ export type Connection = {
  * https://discord.com/developers/docs/resources/user#connection-object-services
  */
 export type ConnectionService = "battlenet"
+	| "ebay"
 	| "epicgames"
 	| "facebook"
 	| "github"
 	| "leagueoflegends"
+	| "paypal"
 	| "playstation"
 	| "reddit"
-	| "samsunggalaxy"
+	| "riotgames"
 	| "spotify"
 	| "skype"
 	| "steam"

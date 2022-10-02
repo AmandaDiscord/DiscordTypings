@@ -14,7 +14,7 @@ export type Webhook = {
 	token?: string;
 	application_id: Snowflake | null;
 	source_guild?: import("./Guild").Guild;
-	source_channel?: import("./Channel").TextChannel | import("./Channel").NewsChannel;
+	source_channel?: import("./Channel").TextChannel | import("./Channel").AnnouncementChannel;
 	url?: string;
 }
 

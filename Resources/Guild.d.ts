@@ -75,7 +75,9 @@ export type ExplicitContentFilterLevel = 0 | 1 | 2;
 /**
  * https://discord.com/developers/docs/resources/guild#guild-object-guild-features
  */
-export type GuildFeature = "ANIMATION_BANNER" | "ANIMATED_ICON" | "AUTO_MODERATION" | "BANNER" | "COMMUNITY" | "DISCOVERABLE" | "FEATURABLE" | "INVITE_SPLASH" | "MEMBER_VERIFICATION_GATE_ENABLED" | "MONETIZATION_ENABLED" | "MORE_STICKERS" | "NEWS" | "PARTNERED" | "PREVIEW_ENABLED" | "PRIVATE_THREADS" | "ROLE_ICONS" | "SEVEN_DAY_THREAD_ARCHIVE" | "THREE_DAY_THREAD_ARCHIVE" | "TICKETED_EVENTS_ENABLED" | "VANITY_URL" | "VERIFIED" | "VIP_REGIONS" | "WELCOME_SCREEN_ENABLED";
+export type GuildFeature = "ANIMATION_BANNER" | "ANIMATED_ICON" | "AUTO_MODERATION" | "BANNER" | "COMMUNITY" | "DISCOVERABLE" | "FEATURABLE" | "INVITES_DISABLED" | "INVITE_SPLASH" | "MEMBER_VERIFICATION_GATE_ENABLED" | "MONETIZATION_ENABLED" | "MORE_STICKERS" | "NEWS" | "PARTNERED" | "PREVIEW_ENABLED" | "PRIVATE_THREADS" | "ROLE_ICONS" | "SEVEN_DAY_THREAD_ARCHIVE" | "THREE_DAY_THREAD_ARCHIVE" | "TICKETED_EVENTS_ENABLED" | "VANITY_URL" | "VERIFIED" | "VIP_REGIONS" | "WELCOME_SCREEN_ENABLED";
+
+export type MutableGuildFeature = Extract<GuildFeature, "COMMUNITY" | "INVITES_DISABLED" | "DISCOVERABLE">
 
 /**
  * https://discord.com/developers/docs/resources/guild#guild-object-mfa-level
@@ -171,6 +173,7 @@ export type Integration = {
 	subscriber_count?: number;
 	revoked?: boolean;
 	application?: IntegrationApplication;
+	scopes?: Array<import("../Topics/OAuth2").OAuth2Scope>;
 }
 
 /**
