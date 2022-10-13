@@ -1,9 +1,11 @@
+import { ChannelType } from "../Resources/Channel";
+
 export type Component = ActionRow | Button | SelectMenu | TextInput;
 
 /**
  * https://discord.com/developers/docs/interactions/message-components#component-object-component-types
  */
-export type ComponentType = 1 | 2 | 3 | 4;
+export type ComponentType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 export type ActionRow = {
 	type: 1;
@@ -49,11 +51,12 @@ export type ButtonStyle = 1 | 2 | 3 | 4 | 5;
  * https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-menu-structure
  */
 export type SelectMenu = {
-	type: 3;
+	type: 3 | 5 | 6 | 7 | 8;
 	/** 1-100 chars */
 	custom_id: string;
 	/** length of 25 max */
 	options?: Array<SelectOption>;
+	channel_types?: Array<ChannelType>;
 	/** 1-150 chars */
 	placeholder?: string;
 	/** 0-25 */
